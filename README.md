@@ -2,12 +2,9 @@
 
 the problem: css-loader with modules: true performs localtion.reload every time instead just silently swap css in place.
 
-now it performs location.reload on any css file change.
+now it wokrs ok.
 
-steps to switch off css modules:
+how to reproduce:
+comment line 17 in index.js:
 
-1. webpack.config.js: `modules: false`
-2. index.js: `import style from './styles.css'` -> `import './styles.css'`
-3. index.js: `element.className = style.test` -> `element.className = 'test'`
-
-and now css hmr will work ok (it won't do location.reload, just will swap css)
+```if (module.hot) module.hot.accept(['./styles.css'], () => {})```

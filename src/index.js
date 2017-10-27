@@ -1,7 +1,7 @@
 import style from './styles.css'
 
 function component() {
-	const element = document.createElement('div')
+	const element = document.createElement('h1')
 	element.innerHTML = 'Hello webpack'
 
 	//here the css
@@ -11,3 +11,7 @@ function component() {
 }
 
 document.body.appendChild(component())
+
+
+//comment the next line to break hmr:
+if (module.hot) module.hot.accept(['./styles.css'], () => {})

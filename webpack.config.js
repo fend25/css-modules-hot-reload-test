@@ -16,14 +16,25 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ['style-loader', {loader: 'css-loader', options: {modules: true}}]
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							sourceMap: true,
+							localIdentName: '__[local]___[hash:base64:5]'
+						}
+					}
+				]
 			}
 		]
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({title: 'Hot Module Replacement'}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NamedModulesPlugin()
 	],
 	output: {
 		filename: '[name].bundle.js',
