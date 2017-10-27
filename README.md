@@ -10,4 +10,4 @@ steps to switch off css modules:
 2. index.js: `import style from './styles.css'` -> `import './styles.css'`
 3. index.js: `element.className = style.test` -> `element.className = 'test'`
 
-and now css hmr will wokr ok (it won't do location.reload, just will swap css)
+and now css hmr will work ok (it won't do location.reload, just will swap css)
